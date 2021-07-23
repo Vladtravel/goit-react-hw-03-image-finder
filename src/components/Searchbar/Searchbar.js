@@ -20,6 +20,10 @@ export default class Searchbar extends Component {
   onSearchFromSubmit = (e) => {
     const { onFormSubmit } = this.props;
     e.preventDefault();
+    if (this.state.searchQuery.trim() === "") {
+      alert("input valid name");
+      return;
+    }
 
     onFormSubmit(this.state.searchQuery);
     this.setState({ searchQuery: "" });
